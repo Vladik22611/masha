@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+    {% if cart_items %}
+
+
+    
+                {% for item in a %}
+                
+                <div class="job_details_area">
+                <div class="container">
+                    <div class="row" >
+                        <div class="col-lg-10"  >
+                            <div class="job_details_header">
+                                <div class="single_jobs white-bg d-flex justify-content-between">
+                                    <div class="jobs_left d-flex align-items-center">
+                                        <!--<div class="thumb">
+                                            <img src="{% static 'img/svg_icon/1.svg' %}" alt="">
+                                        </div> -->
+                                        <div class="jobs_conetent">
+                                            
+                                            
+                                                <h4>{{item.name}}</h4>
+                                            <a href="{% url 'remove_from_cart' item.id %}" class="boxed-btn3-line">Удалить</a>
+                                            
+                                        </div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                            <div class="descript_wrap white-bg">
+                                <div class="single_wrap">
+                                    <h4>Описание </h4>
+                                    <ul>
+                                        <li>Артикул: {{ item.part_number }}</li>
+                                        <li>Количество: {{ item.quantity }}</li>
+                                        <li>Цена за единицу: {{ item.price }}</li>
+                                        <li>Общая цена: {{ item.total_price }}</li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+                
+     
+                {% endfor %}
+                <div class="container">
+
+                    <div class="section-top-border text-right">
+                        <h2>Итого: {{ total }}</h2>  <!-- Здесь используется переменная total -->
+                         <a href="{% url 'add_order' %}" class="boxed-btn3">Сделать заказ</a>
+                    </div>
+                </div>
+            </div>
+        
+    {% else %}
+    <div class="job_details_area">
+        <div class="container">
+            <div class="row" >
+                <div class="col-lg-10" >
+                    <div class="job_details_header">
+                        <div class="single_jobs white-bg d-flex justify-content-between">
+                            <div class="jobs_left d-flex align-items-center">
+                                
+                                    <img src="{% static 'img/svg_icon/sad_train.svg' %}" alt="">
+                                
+                                <div class="jobs_conetent">
+                                    <h4>Упссc... ваша корзина пуста...</h4>
+                                    <a href="{% url 'index'%}"><h4>перейдите на главную и добавьте товаров!</h4></a>
+                        
+                                </div>  
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div> 
+    {% endif %}
+{% endblock %}

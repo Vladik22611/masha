@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="section-top-border">
+    <div class="row">
+        <div class="col-lg-8 col-md-4">
+            <h1>   </h1>
+            <h3 class="mb-30">Добро пожаловать, дорогой {{ new_user.username }}!</h3>
+            Твой аккаунт создан и теперь ты можешь в него <strong><a href="{% url 'login' %}">войти</a></strong>
+        </div>
+    </div>
+</div>
+{% endblock %}

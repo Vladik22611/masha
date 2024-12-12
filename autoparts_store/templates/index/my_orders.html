@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% if not orders %}
+    <div class="job_details_area">
+        <div class="container">
+            <div class="row" >
+                <div class="col-lg-10" >
+                    <div class="job_details_header">
+                        <div class="single_jobs white-bg d-flex justify-content-between">
+                            <div class="jobs_left d-flex align-items-center">
+                                
+                                    <img src="{% static 'img/svg_icon/sad_train.svg' %}" alt="">
+                                
+                                <div class="jobs_conetent">
+                                    <h4>Упссc... вы ещё не сделали ни одного заказа</h4>
+                                    <a href="{% url 'index'%}"><h4>перейдите на главную и сделаете уже заказ!</h4></a>
+                        
+                                </div>  
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>    
+    {% endif %}
+
+<body>
+
+<div class="job_listing_area">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="section_title">
+                    <h3> <a> </a></h3>
+                </div>
+            </div>
+        </div>
+        <div class="job_lists">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    {% for order in orders %}
+                    <div class="single_jobs white-bg d-flex justify-content-between">
+                        <div class="jobs_left d-flex align-items-center">
+                            <div class="jobs_conetent">
+                                <a href="job_details.html"><h4>Заказ №{{ order.id_order }}</h4></a>
+                                <div class="links_locat d-flex align-items-center">
+                                    <div class="location">
+                                        <p> <i class="fa fa-clock-o"></i> {{ order.order_date}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jobs_right">
+                            <div class="apply_now">
+                                <a href="{% url 'order_detail' order.id_order %}" class="boxed-btn3">Посмотреть заказ</a>
+                            </div>
+                            <div class="date">
+                                <p>Сумма заказа {{ order.total_sum }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+{% endblock %}

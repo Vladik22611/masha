@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="section-top-border">
+        
+            <div class="col-lg-3 col-md-4">
+                <h1>   </h1>
+                <h3 class="mb-30">{{ title }}</h3>
+                    <form action="{% url our_url pk %}" method="post">
+                        {{ form.part_number.label_tag }}{{ form.part_number}}
+                        {{ form.part_name.label_tag }}{{ form.part_name }}
+                        {{ form.manufacturer.label_tag }}{{ form.manufacturer }}
+                        {{ form.supplier.label_tag }}{{ form.supplier }}
+                        {{ form.quantity_in_stock.label_tag }}{{ form.quantity_in_stock }}
+                        {{ form.price.label_tag }}{{ form.price }}
+                        {% csrf_token %}
+                    <!-- <input type="hidden" name="next" value="{{ next }}"/>-->
+                        <p text-align: right;> </p>
+                        <p><input type="submit" class="boxed-btn3" value={{ button_title }}></p>
+                    </form>
+            </div>
+    </div>
+{% endblock %}

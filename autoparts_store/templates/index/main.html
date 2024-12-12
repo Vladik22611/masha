@@ -1,0 +1,380 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+    <!-- header-end -->
+
+    <!-- slider_area_start -->
+     <!-- <div class="slider_area">
+         <div class="single_slider  d-flex align-items-center slider_bg_1">
+            <div class="container">
+                 <div class="row align-items-center">
+                    <div class="col-lg-7 col-md-6">
+                        <div class="slider_text">
+                            <h1>Привет</h1>
+                            <h5 class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".2s">4536+ Jobs listed</h5>
+                            <h3 class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".3s">Find your Dream Job</h3>
+                            <p class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".4s">We provide online instant cash loans with quick approval that suit your term length</p>
+                             <div class="sldier_btn wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s">
+                                <a href="#" class="boxed-btn3">Upload your Resume</a> 
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div> 
+        <div class="ilstration_img wow fadeInRight d-none d-lg-block text-right" data-wow-duration="1s" data-wow-delay=".2s">
+        <img src="{% static 'img/banner/illustration1.png' %}" alt="">
+        
+    </div> 
+    slider_area_end -->
+
+    <!-- catagory_area -->
+    
+    <div class="catagory_area">
+        <div class="container">
+            <!--<div class="job_btn">
+                <a href="#" class="boxed-btn3">Сделать заказ</a>
+            </div>
+        -->
+                        
+                
+                <!--
+                 -->
+                <h1 text-align: right;> </h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="popular_search d-flex align-items-center">
+                        {% if is_superuser %}
+                        
+                        <span>Привелегии администратора:</span>
+                        <ul>
+                            <li><a href ="{% url 'del_order' %}">Удалить заказ</a></li>
+                            <li><a href ="{% url 'change_order' %}">Изменить заказ</a></li>
+                            <li><a href ="{% url 'show_table' 'orders' %}">Таблица заказов</a></li>
+                            <li><a href ="{% url 'show_table' 'ordered_parts' %}">Таблица составов заказа</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href ="{% url 'add_part' %}">Добавить запчасть</a></li>
+                            <li><a href ="{% url 'del_part' %}">Удалить запчасть</a></li>
+                            <li><a href ="{% url 'change_part' %}">Изменить запчасть</a></li>
+                            <li><a href ="{% url 'show_table' 'parts' %}">Таблица запчастей</a></li>
+                        </ul>
+                        <span> 
+                            
+                        </span>
+                        
+                        {% endif %}
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    <!--/ catagory_area -->
+
+    
+    <!-- featured_candidates_area_start  -->
+    
+    <!-- featured_candidates_area_start  -->
+    <div class="featured_candidates_area candidate_page_padding">
+        <div class="container">
+            <div class="section_title text-center mb-40">
+                <p> </p>
+                    <h3>Каталог</h3>
+            </div>
+            <div class="row">
+                {% for part in parts %}
+                <div class="col-md-6 col-lg-3">
+                    
+                    <div class="single_candidates text-center">
+                        <div class="thumb">
+                            <img src="{% static 'img/candiateds/11.png' %}" alt="">
+                        </div>
+                        <a href="#"><h4>{{ part.name}}</h4></a>
+                        <p>Производитель: {{ part.man }}</p>
+                        <p>Поставщик: {{ part.sup }}</p>
+                        <p>Цена : {{ part.price }}</p>
+                        <a href="{% url 'add_cart' part.id %}" class="boxed-btn3">Добавить</a>
+                        
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="col-md-6 col-lg-3">
+                    <div class="single_candidates text-center">
+                        <div class="thumb">
+                            <img src="img/candiateds/2.png" alt="">
+                        </div>
+                        <a href="#"><h4>Markary Jondon</h4></a>
+                        <p>Software Engineer</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="single_candidates text-center">
+                        <div class="thumb">
+                            <img src="img/candiateds/3.png" alt="">
+                        </div>
+                        <a href="#"><h4>Markary Jondon</h4></a>
+                        <p>Software Engineer</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="single_candidates text-center">
+                        <div class="thumb">
+                            <img src="img/candiateds/4.png" alt="">
+                        </div>
+                        <a href="#"><h4>Markary Jondon</h4></a>
+                        <p>Software Engineer</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    
+                    <div class="single_candidates text-center">
+                        <div class="thumb">
+                            <img src="img/candiateds/5.png" alt="">
+                        </div>
+                        <a href="#"><h4>Markary Jondon</h4></a>
+                        <p>Software Engineer</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="single_candidates text-center">
+                        <div class="thumb">
+                            <img src="img/candiateds/6.png" alt="">
+                        </div>
+                        <a href="#"><h4>Markary Jondon</h4></a>
+                        <p>Software Engineer</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="single_candidates text-center">
+                        <div class="thumb">
+                            <img src="img/candiateds/7.png" alt="">
+                        </div>
+                        <a href="#"><h4>Markary Jondon</h4></a>
+                        <p>Software Engineer</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="single_candidates text-center">
+                        <div class="thumb">
+                            <img src="img/candiateds/8.png" alt="">
+                        </div>
+                        <a href="#"><h4>Markary Jondon</h4></a>
+                        <p>Software Engineer</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="single_candidates text-center">
+                        <div class="thumb">
+                            <img src="img/candiateds/9.png" alt="">
+                        </div>
+                        <a href="#"><h4>Markary Jondon</h4></a>
+                        <p>Software Engineer</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="single_candidates text-center">
+                        <div class="thumb">
+                            <img src="img/candiateds/10.png" alt="">
+                        </div>
+                        <a href="#"><h4>Markary Jondon</h4></a>
+                        <p>Software Engineer</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="single_candidates text-center">
+                        <div class="thumb">
+                            <img src="img/candiateds/3.png" alt="">
+                        </div>
+                        <a href="#"><h4>Markary Jondon</h4></a>
+                        <p>Software Engineer</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="single_candidates text-center">
+                        <div class="thumb">
+                            <img src="img/candiateds/4.png" alt="">
+                        </div>
+                        <a href="#"><h4>Markary Jondon</h4></a>
+                        <p>Software Engineer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="pagination_wrap">
+                        <ul>
+                            <li><a href="#"> <i class="ti-angle-left"></i> </a></li>
+                            <li><a href="#"><span>01</span></a></li>
+                            <li><a href="#"><span>02</span></a></li>
+                            <li><a href="#"> <i class="ti-angle-right"></i> </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- featured_candidates_area_end  -->
+<!--
+    <div class="top_companies_area">
+        <div class="container">
+            <div class="row align-items-center mb-40">
+                <div class="col-lg-6 col-md-6">
+                    <div class="section_title">
+                        <h3>Top Companies</h3>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="brouse_job text-right">
+                        <a href="jobs.html" class="boxed-btn4">Browse More Job</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-xl-3 col-md-6">
+                    <div class="single_company">
+                        <div class="thumb">
+                            <img src="img/svg_icon/5.svg" alt="">
+                        </div>
+                        <a href="jobs.html"><h3>Snack Studio</h3></a>
+                        <p> <span>50</span> Available position</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xl-3 col-md-6">
+                    <div class="single_company">
+                        <div class="thumb">
+                            <img src="img/svg_icon/4.svg" alt="">
+                        </div>
+                        <a href="jobs.html"><h3>Snack Studio</h3></a>
+                        <p> <span>50</span> Available position</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xl-3 col-md-6">
+                    <div class="single_company">
+                        <div class="thumb">
+                            <img src="img/svg_icon/3.svg" alt="">
+                        </div>
+                        <a href="jobs.html"><h3>Snack Studio</h3></a>
+                        <p> <span>50</span> Available position</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xl-3 col-md-6">
+                    <div class="single_company">
+                        <div class="thumb">
+                            <img src="img/svg_icon/1.svg" alt="">
+                        </div>
+                        <a href="jobs.html"><h3>Snack Studio</h3></a>
+                        <p> <span>50</span> Available position</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- job_searcing_wrap  
+    <div class="job_searcing_wrap overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 offset-lg-1 col-md-6">
+                    <div class="searching_text">
+                        <h3>Хотите быть в курсе всех ваших маршрутов?</h3>
+                        <p>Отслеживайте свои маршруты в реальном времени</p>
+                        <a href="#" class="boxed-btn3">Отследить</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1 col-md-6">
+                    <div class="searching_text">
+                        <h3>Что о базе данных?</h3>
+                        <p>Пока что в базе данных хранится {{ count_races }} маршрутов</p>
+                        <a href="#" class="boxed-btn3">Post a Job</a> 
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+     job_searcing_wrap end  -->
+
+    <!-- testimonial_area  -->
+    <div class="testimonial_area  ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section_title text-center mb-40">
+                        <h3>Место для чего-то интересного</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+                <div class="col-xl-12">
+                    <div class="testmonial_active owl-carousel">
+                        <div class="single_carousel">
+                            <div class="row">
+                                <div class="col-lg-11">
+                                    <div class="single_testmonial d-flex align-items-center">
+                                        <div class="thumb">
+                                            <img src="img/testmonial/author.png" alt="">
+                                            <div class="quote_icon">
+                                                <i class="Flaticon flaticon-quote"></i>
+                                            </div>
+                                        </div>
+                                        <div class="info">
+                                            <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering through animal welfare when people might depend on livestock as their only source of income or food.</p>
+                                            <span>- Micky Mouse</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_carousel">
+                            <div class="row">
+                                <div class="col-lg-11">
+                                    <div class="single_testmonial d-flex align-items-center">
+                                        <div class="thumb">
+                                            <img src="img/testmonial/author.png" alt="">
+                                            <div class="quote_icon">
+                                                <i class=" Flaticon flaticon-quote"></i>
+                                            </div>
+                                        </div>
+                                        <div class="info">
+                                            <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering through animal welfare when people might depend on livestock as their only source of income or food.</p>
+                                            <span>- Micky Mouse</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_carousel">
+                            <div class="row">
+                                <div class="col-lg-11">
+                                    <div class="single_testmonial d-flex align-items-center">
+                                        <div class="thumb">
+                                            <img src="img/testmonial/author.png" alt="">
+                                            <div class="quote_icon">
+                                                <i class="Flaticon flaticon-quote"></i>
+                                            </div>
+                                        </div>
+                                        <div class="info">
+                                            <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering through animal welfare when people might depend on livestock as their only source of income or food.</p>
+                                            <span>- Micky Mouse</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+    </div>
+    <!-- /testimonial_area  -->
+{% endblock %}

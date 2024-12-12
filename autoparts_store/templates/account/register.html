@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="section-top-border">
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <h1>   </h1>
+                <h3 class="mb-30">Регистрация</h3>
+                        <form action="." method="post">
+                            <div class="mt-10">
+                            {{ user_form.as_p }}
+                            {% csrf_token %}
+                            
+                            </div>
+                            <p><input type="submit" class="boxed-btn3"  value="Создать аккаунт"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>            
+{% endblock %}

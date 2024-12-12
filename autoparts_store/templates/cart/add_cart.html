@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="section-top-border">
+        
+            <div class="col-lg-3 col-md-4">
+                <h1>   </h1>
+                <h3 class="mb-30">{{ title }}</h3>
+                <h3 class="mb-30">{{ name }}</h3>
+                    <form action="{% url our_url art %}" method="post">
+                        {{ form.as_p }}
+                        {% csrf_token %}
+                    <!-- <input type="hidden" name="next" value="{{ next }}"/>-->
+                        <p text-align: right;> </p>
+                        <p>Цена за 1 шт : {{ price }} руб.</p>
+                        {% if count %}
+                            <p>Осталось на складе : {{ count }} шт</p>
+                            <p><input type="submit" class="boxed-btn3" value={{ button_title }}></p>
+                        {% else %}
+                            <p>К сожалению на складе не осталось ни одной штуки....</p>
+                            <a class="genric-btn danger circle" href="{% url 'index' %}">Вернуться</a>
+                        {% endif %}
+                    </form>
+            </div>
+    </div>
+{% endblock %}

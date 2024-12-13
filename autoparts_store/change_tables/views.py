@@ -246,7 +246,7 @@ def change_part(request):
         {
             "form": form,
             "our_url": "change_part",
-            "title": "Изменение товара",
+            "title": "Изменение запчасти",
             "button_title": "Изменить",
         },
     )
